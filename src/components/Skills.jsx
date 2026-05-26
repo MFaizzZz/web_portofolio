@@ -68,7 +68,7 @@ export default function Skills() {
   return (
     <section id="skills" className="section-padding relative">
       {/* Decorative line */}
-      <div className="absolute left-0 right-0 top-0 h-px bg-gradient-to-r from-transparent via-neon-blue/20 to-transparent" />
+      <div className="absolute left-0 right-0 top-0 h-px bg-gradient-to-r from-transparent via-neon-amber/20 to-transparent" />
 
       <div className="max-w-7xl mx-auto px-6">
         <div ref={ref} className="text-center mb-16">
@@ -85,7 +85,7 @@ export default function Skills() {
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.1 }}
           >
-            Skills & <span className="text-neon-blue">Expertise</span>
+            Skills & <span className="text-neon-amber">Expertise</span>
           </motion.h2>
         </div>
 
@@ -94,13 +94,13 @@ export default function Skills() {
           {categories.map((cat) => (
             <motion.div
               key={cat}
-              className="rounded-2xl border border-white/10 bg-dark-800/55 p-6 shadow-card backdrop-blur-sm transition-colors duration-300 hover:border-neon-blue/35"
+              className="rounded-2xl border border-white/10 bg-dark-800/55 p-6 shadow-card backdrop-blur-sm transition-colors duration-300 hover:border-neon-amber/35"
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
               <div className="flex items-center gap-2 mb-6">
-                <div className="h-px w-8 bg-neon-blue" />
+                <div className="h-px w-8 bg-neon-amber" />
                 <h3 className="font-display font-bold text-white text-lg">{cat} Skills</h3>
               </div>
               <div className="space-y-5">
@@ -122,11 +122,11 @@ export default function Skills() {
           {['Git', 'Figma', 'Tableau', 'Pandas', 'Firebase', 'REST API'].map((tech, i) => (
             <motion.span
               key={tech}
-              className="rounded-full border border-white/10 bg-white/[0.03] px-3 py-1 font-body text-sm text-white/55 transition-colors hover:border-neon-blue/35 hover:text-neon-blue"
+              className="rounded-full border border-white/10 bg-white/[0.03] px-3 py-1 font-body text-sm text-white/55 transition-colors hover:border-neon-amber/35 hover:text-neon-amber"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={isInView ? { opacity: 1, scale: 1 } : {}}
               transition={{ delay: 0.5 + i * 0.05 }}
-              whileHover={{ scale: 1.05, borderColor: 'rgba(0,212,255,0.6)' }}
+              whileHover={{ scale: 1.05, borderColor: 'rgba(245,158,11,0.6)' }}
             >
               {tech}
             </motion.span>

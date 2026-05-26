@@ -32,12 +32,12 @@ export default function CustomCursor() {
   return (
     <>
       <motion.div
-        className="fixed top-0 left-0 w-2 h-2 bg-neon-blue rounded-full pointer-events-none z-[99999] mix-blend-screen"
+        className="fixed top-0 left-0 w-2 h-2 bg-neon-amber rounded-full pointer-events-none z-[99999] mix-blend-screen"
         animate={{ x: pos.x - 4, y: pos.y - 4 }}
         transition={{ type: 'spring', stiffness: 800, damping: 30 }}
       />
       <motion.div
-        className="fixed top-0 left-0 rounded-full pointer-events-none z-[99998] border border-neon-blue/50 mix-blend-screen"
+        className="fixed top-0 left-0 rounded-full pointer-events-none z-[99998] border border-neon-amber/50 mix-blend-screen"
         animate={{
           x: pos.x - (isHovering ? 24 : 16),
           y: pos.y - (isHovering ? 24 : 16),

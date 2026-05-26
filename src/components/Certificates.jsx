@@ -11,6 +11,14 @@ const certificates = [
     category: 'Artificial Intelligence',
     url: '/certificates/E-Certificate%20MUH%20FAIZ%20AI%20for%20Business_%20Innovate,%20Automate,%20Dominate.pdf',
   },
+  {
+    title: 'Pembekalan PI',
+    subtitle: 'Praktik Industri',
+    issuer: 'E-Certificate',
+    date: '2025',
+    category: 'Industrial Practice',
+    url: '/certificates/E-Certificate%20Pembekalan%20PI.pdf',
+  },
 ]
 
 function CertRow({ cert, index }) {
@@ -20,7 +28,7 @@ function CertRow({ cert, index }) {
   return (
     <motion.article
       ref={ref}
-      className="group rounded-2xl border border-white/10 bg-dark-800/55 p-7 shadow-card backdrop-blur-sm transition-all duration-300 hover:border-neon-blue/35 md:p-8"
+      className="group rounded-2xl border border-white/10 bg-dark-800/55 p-7 shadow-card backdrop-blur-sm transition-all duration-300 hover:border-neon-amber/35 md:p-8"
       initial={{ opacity: 0, y: 24 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.45, delay: index * 0.08 }}
@@ -28,12 +36,12 @@ function CertRow({ cert, index }) {
     >
       <div className="flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
         <div className="flex items-start gap-4">
-          <div className="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-xl bg-neon-blue/10 text-neon-blue">
+          <div className="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-xl bg-neon-amber/10 text-neon-amber">
             <FiAward size={24} />
           </div>
 
           <div>
-            <span className="font-body text-xs font-medium uppercase text-neon-blue/80">
+            <span className="font-body text-xs font-medium uppercase text-neon-amber/80">
               {cert.category}
             </span>
             <h3 className="mt-3 font-display text-2xl font-bold leading-tight text-white md:text-3xl">
@@ -56,7 +64,7 @@ function CertRow({ cert, index }) {
           href={cert.url}
           target="_blank"
           rel="noreferrer"
-          className="inline-flex w-full items-center justify-center gap-2 rounded-lg border border-neon-blue/30 px-5 py-3 font-body text-sm font-semibold text-neon-blue transition-colors duration-300 hover:bg-neon-blue hover:text-dark-900 md:w-auto"
+          className="inline-flex w-full items-center justify-center gap-2 rounded-lg border border-neon-amber/30 px-5 py-3 font-body text-sm font-semibold text-neon-amber transition-colors duration-300 hover:bg-neon-amber hover:text-dark-900 md:w-auto"
           whileHover={{ y: -2 }}
           whileTap={{ scale: 0.98 }}
         >

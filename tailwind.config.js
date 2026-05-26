@@ -8,8 +8,10 @@ export default {
     extend: {
       colors: {
         neon: {
-          blue: '#38BDF8',
-          glow: '#0284C7',
+          amber: '#F59E0B',
+          'amber-glow': '#DC2626',
+          cyan: '#38BDF8',
+          'cyan-glow': '#0284C7',
         },
         dark: {
           900: '#050810',
@@ -40,8 +42,8 @@ export default {
         }
       },
       boxShadow: {
-        'neon': '0 0 18px rgba(56, 189, 248, 0.25), 0 0 48px rgba(56, 189, 248, 0.08)',
-        'neon-sm': '0 0 10px rgba(56, 189, 248, 0.18)',
+        'neon': '0 0 18px rgba(245, 158, 11, 0.25), 0 0 48px rgba(245, 158, 11, 0.08)',
+        'neon-sm': '0 0 10px rgba(245, 158, 11, 0.18)',
         'card': '0 8px 32px rgba(0, 0, 0, 0.4)',
       }
     },

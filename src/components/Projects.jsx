@@ -8,8 +8,8 @@ const projects = [
     desc: 'Aplikasi Flutter untuk tracking kebiasaan harian dengan analitik progress.',
     tags: ['Flutter', 'Dart', 'Firebase'],
     icon: FiSmartphone,
-    color: '#38BDF8',
-    github: 'https://github.com',
+    color: '#F59E0B',
+    github: 'https://github.com/MFaizzZz/HabitFlow',
     demo: null,
     status: 'Completed',
   },
@@ -18,7 +18,7 @@ const projects = [
     desc: 'Website restoran dengan reservasi online, menu digital, dan dashboard admin.',
     tags: ['HTML', 'CSS', 'JavaScript', 'PHP'],
     icon: FiGlobe,
-    color: '#10B981',
+    color: '#38BDF8',
     github: null,
     demo: 'https://casa-valore.wuaze.com/?i=1',
     status: 'Completed',
@@ -28,7 +28,7 @@ const projects = [
     desc: 'Platform pembelajaran Berbasis website untuk sekolah dengan fitur manajemen tugas',
     tags: ['HTML', 'CSS', 'PHP', 'MYSQL'],
     icon: FiBook,
-    color: '#A78BFA',
+    color: '#F59E0B',
     github: null,
     demo: 'http://sipandaa.kesug.com',
     status: 'Completed',
@@ -38,7 +38,7 @@ const projects = [
     desc: 'Landing page aplikasi pencatat kebiasaan dengan tampilan modern, responsif, dan fokus pada preview produk.',
     tags: ['React', 'Tailwind CSS', 'Vercel'],
     icon: FiLayout,
-    color: '#C9F58A',
+    color: '#38BDF8',
     github: null,
     demo: 'https://lphabitflow.vercel.app/',
     status: 'Completed',
@@ -53,7 +53,7 @@ function ProjectCard({ project, index }) {
   return (
     <motion.article
       ref={ref}
-      className="group rounded-2xl border border-white/10 bg-dark-800/55 p-5 shadow-card backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-neon-blue/35"
+      className="group rounded-2xl border border-white/10 bg-dark-800/55 p-5 shadow-card backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-amber-500/35"
       initial={{ opacity: 0, y: 28 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.5, delay: index * 0.08, ease: [0.22, 1, 0.36, 1] }}

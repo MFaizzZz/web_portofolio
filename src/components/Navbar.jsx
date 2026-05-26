@@ -35,7 +35,7 @@ export default function Navbar({ scrolled }) {
             whileHover={{ scale: 1.02 }}
           >
             <span className="font-display font-bold text-white text-lg tracking-tight">
-              Muh<span className="text-neon-blue">.</span>Faiz
+              Muh<span className="text-neon-amber">.</span>Faiz
             </span>
           </motion.div>
         </Link>
@@ -53,14 +53,14 @@ export default function Navbar({ scrolled }) {
               className="relative px-4 py-2 cursor-pointer group"
             >
               <span className={`font-body text-sm font-medium transition-colors duration-200 ${
-                active === link.to ? 'text-neon-blue' : 'text-white/60 group-hover:text-white'
+                active === link.to ? 'text-neon-amber' : 'text-white/60 group-hover:text-white'
               }`}>
                 {link.label}
               </span>
               {active === link.to && (
                 <motion.div
                   layoutId="nav-indicator"
-                  className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-neon-blue shadow-neon-sm"
+                  className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-neon-amber shadow-neon-sm"
                 />
               )}
             </Link>
@@ -72,7 +72,7 @@ export default function Navbar({ scrolled }) {
           <motion.a
             href="/cv.pdf"
             download
-            className="text-sm font-medium font-body text-neon-blue transition-colors duration-200 hover:text-white"
+            className="text-sm font-medium font-body text-neon-amber transition-colors duration-200 hover:text-white"
             whileHover={{ y: -1 }}
             whileTap={{ scale: 0.97 }}
           >
@@ -82,7 +82,7 @@ export default function Navbar({ scrolled }) {
 
         {/* Mobile hamburger */}
         <button
-          className="md:hidden text-white/70 hover:text-neon-blue transition-colors"
+          className="md:hidden text-white/70 hover:text-neon-amber transition-colors"
           onClick={() => setOpen(!open)}
         >
           {open ? <HiX size={24} /> : <HiMenu size={24} />}
@@ -112,7 +112,7 @@ export default function Navbar({ scrolled }) {
                     smooth
                     duration={600}
                     onClick={() => setOpen(false)}
-                    className="block py-3 text-white/70 hover:text-neon-blue font-body font-medium transition-colors cursor-pointer border-b border-white/5 last:border-0"
+                    className="block py-3 text-white/70 hover:text-neon-amber font-body font-medium transition-colors cursor-pointer border-b border-white/5 last:border-0"
                   >
                     {link.label}
                   </Link>

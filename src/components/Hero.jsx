@@ -37,7 +37,7 @@ export default function Hero() {
 
             <motion.div variants={itemVariants} className="mb-7 flex flex-wrap gap-x-4 gap-y-2">
               {roles.map((role, index) => (
-                <span key={role} className="font-body text-sm text-neon-blue/85">
+                <span key={role} className="font-body text-sm text-neon-amber/85">
                   {role}{index < roles.length - 1 ? ' /' : ''}
                 </span>
               ))}
@@ -56,7 +56,7 @@ export default function Hero() {
               <motion.a
                 href="/cv.pdf"
                 download
-                className="flex items-center gap-2 border-b border-neon-blue pb-2 font-body text-sm font-semibold text-neon-blue transition-colors duration-300 hover:text-white"
+                className="flex items-center gap-2 border-b border-neon-amber pb-2 font-body text-sm font-semibold text-neon-amber transition-colors duration-300 hover:text-white"
                 whileHover={{ y: -2 }}
                 whileTap={{ scale: 0.98 }}
               >
@@ -65,7 +65,7 @@ export default function Hero() {
               </motion.a>
               <Link to="contact" smooth duration={600}>
                 <motion.button
-                  className="flex items-center gap-2 border-b border-white/25 pb-2 font-body text-sm font-medium text-white/75 transition-colors duration-300 hover:border-neon-blue hover:text-neon-blue"
+                  className="flex items-center gap-2 border-b border-white/25 pb-2 font-body text-sm font-medium text-white/75 transition-colors duration-300 hover:border-neon-amber hover:text-neon-amber"
                   whileHover={{ y: -2 }}
                   whileTap={{ scale: 0.98 }}
                 >
@@ -86,7 +86,7 @@ export default function Hero() {
                   target="_blank"
                   rel="noreferrer"
                   aria-label={label}
-                  className="flex h-10 w-10 items-center justify-center text-white/55 transition-colors duration-200 hover:text-neon-blue"
+                  className="flex h-10 w-10 items-center justify-center text-white/55 transition-colors duration-200 hover:text-neon-amber"
                   whileHover={{ y: -2 }}
                   whileTap={{ scale: 0.96 }}
                 >

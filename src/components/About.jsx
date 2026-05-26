@@ -67,7 +67,7 @@ function HangingPhoto() {
         whileDrag={{ scale: 1.03 }}
         whileHover={{ y: -2 }}
       >
-        <div className="absolute -top-3 left-1/2 h-5 w-5 -translate-x-1/2 rounded-full border border-neon-blue/25 bg-dark-900/80" />
+        <div className="absolute -top-3 left-1/2 h-5 w-5 -translate-x-1/2 rounded-full border border-neon-amber/25 bg-dark-900/80" />
         <div className="overflow-hidden rounded-2xl">
           <img
             src="/Faiz.jpeg"
@@ -90,13 +90,13 @@ function FocusCard({ item, index }) {
   return (
     <motion.div
       ref={ref}
-      className="border-t border-white/10 py-5 transition-colors duration-300 hover:border-neon-blue/40"
+      className="border-t border-white/10 py-5 transition-colors duration-300 hover:border-neon-amber/40"
       initial={{ opacity: 0, y: 28 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.45, delay: index * 0.08 }}
       whileHover={{ y: -3 }}
     >
-      <div className="mb-4 flex h-10 w-10 items-center justify-center text-neon-blue">
+      <div className="mb-4 flex h-10 w-10 items-center justify-center text-neon-amber">
         <Icon size={18} />
       </div>
       <h3 className="font-display text-base font-bold text-white">{item.title}</h3>
@@ -153,7 +153,7 @@ export default function About() {
             >
               {stats.map((stat) => (
                 <div key={stat.label}>
-                  <div className="font-display text-2xl font-bold text-neon-blue md:text-3xl">
+                  <div className="font-display text-2xl font-bold text-neon-amber md:text-3xl">
                     {stat.value}
                   </div>
                   <div className="mt-1 font-body text-xs text-white/45 md:text-sm">{stat.label}</div>
