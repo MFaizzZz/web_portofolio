@@ -1,6 +1,6 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
-import { FiGithub, FiExternalLink, FiSmartphone, FiGlobe, FiBarChart2, FiBook } from 'react-icons/fi'
+import { FiGithub, FiExternalLink, FiSmartphone, FiGlobe, FiLayout, FiBook } from 'react-icons/fi'
 
 const projects = [
   {
@@ -25,22 +25,22 @@ const projects = [
   },
   {
     title: 'LMS Website',
-    desc: 'Platform pembelajaran dengan kursus, quiz, dan progress tracking.',
-    tags: ['React', 'Node.js', 'MongoDB'],
+    desc: 'Platform pembelajaran Berbasis website untuk sekolah dengan fitur manajemen tugas',
+    tags: ['HTML', 'CSS', 'PHP', 'MYSQL'],
     icon: FiBook,
     color: '#A78BFA',
-    github: 'https://github.com',
-    demo: 'https://demo.com',
-    status: 'In Progress',
+    github: null,
+    demo: 'http://sipandaa.kesug.com',
+    status: 'Completed',
   },
   {
-    title: 'Data Analyst Dashboard',
-    desc: 'Dashboard analitik Python untuk visualisasi data dan insight bisnis.',
-    tags: ['Python', 'Pandas', 'Plotly', 'SQL'],
-    icon: FiBarChart2,
-    color: '#FBBF24',
-    github: 'https://github.com',
-    demo: null,
+    title: 'HabitFlow Landing Page',
+    desc: 'Landing page aplikasi pencatat kebiasaan dengan tampilan modern, responsif, dan fokus pada preview produk.',
+    tags: ['React', 'Tailwind CSS', 'Vercel'],
+    icon: FiLayout,
+    color: '#C9F58A',
+    github: null,
+    demo: 'https://lphabitflow.vercel.app/',
     status: 'Completed',
   },
 ]
