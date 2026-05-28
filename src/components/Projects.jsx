@@ -39,7 +39,7 @@ const projects = [
   {
     title: 'HabitFlow Landing Page',
     desc: 'Landing page aplikasi pencatat kebiasaan dengan tampilan modern, responsif, dan fokus pada preview produk.',
-    tags: ['React', 'Tailwind CSS', 'Vercel'],
+    tags: ['React', 'Tailwind CSS'],
     icon: FiLayout,
     color: '#38BDF8',
     github: null,
@@ -47,21 +47,19 @@ const projects = [
     status: 'Completed',
     image: '/landingpage.png'
   },
-  // ── Tambah project baru di sini ──────────────────────────────────────────
-  // {
-  //   title: 'Project Baru',
-  //   desc: 'Deskripsi project baru kamu.',
-  //   tags: ['React', 'Node.js'],
-  //   icon: FiGlobe,
-  //   color: '#A78BFA',
-  //   github: 'https://github.com/...',
-  //   demo: null,
-  //   status: 'In Progress',
-  //   image: '/images/project-baru.png',
-  // },
+    {
+    title: 'HappyBirthday Website',
+    desc: 'Website UlangTahun simpel dengan pin code dan animasi sederhana.',
+    tags: ['HTML', 'CSS', 'JavaScript'],
+    icon: FiLayout,
+    color: '#38BDF8',
+    github: null,
+    demo: 'https://happybirthdaysaa.vercel.app/',
+    status: 'Completed',
+    image: '/happybirthday.png'
+  },
 ]
 
-// ─── CARD ─────────────────────────────────────────────────────────────────────
 function ProjectCard({ project, index }) {
   const Icon = project.icon
 
