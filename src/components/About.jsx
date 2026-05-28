@@ -33,7 +33,7 @@ const focusAreas = [
 
 const stats = [
   { value: '4+', label: 'Projects' },
-  { value: '1+', label: 'Certificates' },
+  { value: '2+', label: 'Certificates' },
   { value: '2+', label: 'Years Learning' },
 ]
 

@@ -9,10 +9,14 @@ const skills = [
   { name: 'HTML', icon: FiLayout, level: 90, color: '#E34F26', category: 'Web' },
   { name: 'CSS', icon: FiCode, level: 85, color: '#1572B6', category: 'Web' },
   { name: 'JavaScript', icon: FiCpu, level: 80, color: '#F7DF1E', category: 'Web' },
-  { name: 'Python', icon: FiTrendingUp, level: 82, color: '#3776AB', category: 'Data' },
-  { name: 'Excel', icon: FiFileText, level: 88, color: '#217346', category: 'Data' },
-  { name: 'SQL', icon: FiDatabase, level: 78, color: '#00D4FF', category: 'Data' },
-  { name: 'Data Analysis', icon: FiBarChart2, level: 80, color: '#013243', category: 'Data' },
+  { name: 'React', icon: FiCode, level: 65, color: '#61DAFB', category: 'Web' },
+  { name: 'PHP', icon: FiCode, level: 80, color: '#777BB4', category: 'Web' },
+  { name: 'Dart', icon: FiCode, level: 60, color: '#0175C2', category: 'Mobile' },
+  { name: 'Flutter', icon: FiCode, level: 55, color: '#02569B', category: 'Mobile' },
+  { name: 'Python', icon: FiTrendingUp, level: 52, color: '#3776AB', category: 'Data' },
+  { name: 'Excel', icon: FiFileText, level: 68, color: '#217346', category: 'Data' },
+  { name: 'SQL', icon: FiDatabase, level: 48, color: '#00D4FF', category: 'Data' },
+  { name: 'Data Analysis', icon: FiBarChart2, level: 40, color: '#013243', category: 'Data' },
 ]
 
 function SkillBar({ skill, index }) {
@@ -59,11 +63,30 @@ function SkillBar({ skill, index }) {
   )
 }
 
+function SkillCard({ cat, delay, isInView }) {
+  return (
+    <motion.div
+      className="rounded-2xl border border-white/10 bg-dark-800/55 p-6 shadow-card backdrop-blur-sm transition-colors duration-300 hover:border-neon-amber/35"
+      initial={{ opacity: 0, y: 30 }}
+      animate={isInView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.5, delay }}
+    >
+      <div className="flex items-center gap-2 mb-6">
+        <div className="h-px w-8 bg-neon-amber" />
+        <h3 className="font-display font-bold text-white text-lg">{cat} Skills</h3>
+      </div>
+      <div className="space-y-5">
+        {skills.filter(s => s.category === cat).map((skill, i) => (
+          <SkillBar key={skill.name} skill={skill} index={i} />
+        ))}
+      </div>
+    </motion.div>
+  )
+}
+
 export default function Skills() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: '-100px' })
-
-  const categories = [...new Set(skills.map(s => s.category))]
 
   return (
     <section id="skills" className="section-padding relative">
@@ -89,27 +112,18 @@ export default function Skills() {
           </motion.h2>
         </div>
 
-        {/* Skill grid by category */}
+        {/* Skill grid - balanced layout */}
         <div className="grid md:grid-cols-2 gap-6 mb-12 max-w-4xl mx-auto">
-          {categories.map((cat) => (
-            <motion.div
-              key={cat}
-              className="rounded-2xl border border-white/10 bg-dark-800/55 p-6 shadow-card backdrop-blur-sm transition-colors duration-300 hover:border-neon-amber/35"
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.2 }}
-            >
-              <div className="flex items-center gap-2 mb-6">
-                <div className="h-px w-8 bg-neon-amber" />
-                <h3 className="font-display font-bold text-white text-lg">{cat} Skills</h3>
-              </div>
-              <div className="space-y-5">
-                {skills.filter(s => s.category === cat).map((skill, i) => (
-                  <SkillBar key={skill.name} skill={skill} index={i} />
-                ))}
-              </div>
-            </motion.div>
-          ))}
+
+          {/* Kolom kiri: Web Skills */}
+          <SkillCard cat="Web" delay={0.2} isInView={isInView} />
+
+          {/* Kolom kanan: Mobile + Data ditumpuk */}
+          <div className="flex flex-col gap-6">
+            <SkillCard cat="Mobile" delay={0.3} isInView={isInView} />
+            <SkillCard cat="Data" delay={0.4} isInView={isInView} />
+          </div>
+
         </div>
 
         {/* Tech bubble badges */}
@@ -119,7 +133,7 @@ export default function Skills() {
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ delay: 0.5 }}
         >
-          {['Git', 'Figma', 'Tableau', 'Pandas', 'Firebase', 'REST API'].map((tech, i) => (
+          {['Git', 'Figma', 'Tableau', 'Pandas', 'Firebase'].map((tech, i) => (
             <motion.span
               key={tech}
               className="rounded-full border border-white/10 bg-white/[0.03] px-3 py-1 font-body text-sm text-white/55 transition-colors hover:border-neon-amber/35 hover:text-neon-amber"

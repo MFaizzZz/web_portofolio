@@ -1,6 +1,6 @@
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
-import { FiGithub, FiExternalLink, FiSmartphone, FiGlobe, FiLayout, FiBook } from 'react-icons/fi'
+import { FiGithub, FiExternalLink, FiSmartphone, FiGlobe, FiLayout, FiBook, FiChevronLeft, FiChevronRight } from 'react-icons/fi'
 
 const projects = [
   {
@@ -12,6 +12,7 @@ const projects = [
     github: 'https://github.com/MFaizzZz/HabitFlow',
     demo: null,
     status: 'Completed',
+    image: '/habitflow.jpeg'
   },
   {
     title: 'MoneyFlow App',
@@ -22,16 +23,18 @@ const projects = [
     github: 'https://github.com/MFaizzZz/MoneyFlow',
     demo: null,
     status: 'Completed',
+    image: '/moneyflow.png'
   },
   {
     title: 'LMS Website',
-    desc: 'Platform pembelajaran Berbasis website untuk sekolah dengan fitur manajemen tugas',
+    desc: 'Platform pembelajaran berbasis website untuk sekolah dengan fitur manajemen tugas.',
     tags: ['HTML', 'CSS', 'PHP', 'MYSQL'],
     icon: FiBook,
     color: '#F59E0B',
     github: null,
     demo: 'http://sipandaa.kesug.com',
     status: 'Completed',
+    image: '/lms.png'
   },
   {
     title: 'HabitFlow Landing Page',
@@ -42,85 +45,159 @@ const projects = [
     github: null,
     demo: 'https://lphabitflow.vercel.app/',
     status: 'Completed',
+    image: '/landingpage.png'
   },
+  // ── Tambah project baru di sini ──────────────────────────────────────────
+  // {
+  //   title: 'Project Baru',
+  //   desc: 'Deskripsi project baru kamu.',
+  //   tags: ['React', 'Node.js'],
+  //   icon: FiGlobe,
+  //   color: '#A78BFA',
+  //   github: 'https://github.com/...',
+  //   demo: null,
+  //   status: 'In Progress',
+  //   image: '/images/project-baru.png',
+  // },
 ]
 
+// ─── CARD ─────────────────────────────────────────────────────────────────────
 function ProjectCard({ project, index }) {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: '-60px' })
   const Icon = project.icon
 
   return (
     <motion.article
-      ref={ref}
-      className="group rounded-2xl border border-white/10 bg-dark-800/55 p-5 shadow-card backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-amber-500/35"
-      initial={{ opacity: 0, y: 28 }}
-      animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.5, delay: index * 0.08, ease: [0.22, 1, 0.36, 1] }}
+      className="group relative flex-shrink-0 w-72 md:w-80 rounded-2xl border border-white/10 bg-[#0d1117]/80 backdrop-blur-sm overflow-hidden shadow-xl transition-all duration-300 hover:-translate-y-1 hover:border-amber-500/40 hover:shadow-amber-500/10 hover:shadow-2xl"
+      initial={{ opacity: 0, y: 24 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.45, delay: index * 0.06, ease: [0.22, 1, 0.36, 1] }}
     >
-      <div className="mb-4 flex items-start justify-between gap-4">
-        <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/[0.04]" style={{ color: project.color }}>
-          <Icon size={19} />
-        </div>
-        <span className="font-body text-xs text-white/35">{project.status}</span>
-      </div>
-
-      <h3 className="font-display text-xl font-bold leading-tight text-white">{project.title}</h3>
-      <p className="mt-3 min-h-[3.75rem] font-body text-sm leading-relaxed text-white/52">
-        {project.desc}
-      </p>
-
-      <div className="mt-5 flex flex-wrap gap-2">
-        {project.tags.map((tag) => (
-          <span key={tag} className="rounded-full border border-white/10 px-2.5 py-1 font-body text-xs text-white/45">
-            {tag}
-          </span>
-        ))}
-      </div>
-
-      <div className="mt-6 flex items-center gap-4">
-        {project.github && (
-          <motion.a
-            href={project.github}
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center gap-2 font-body text-sm text-white/55 transition-colors hover:text-white"
-            whileHover={{ y: -2 }}
-            whileTap={{ scale: 0.98 }}
-          >
-            <FiGithub size={15} />
-            GitHub
-          </motion.a>
+      {/* ── Image / Placeholder ── */}
+      <div className="relative h-44 w-full overflow-hidden bg-gradient-to-br from-white/[0.03] to-white/[0.06]">
+        {project.image ? (
+          <img
+            src={project.image}
+            alt={`Screenshot ${project.title}`}
+            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+          />
+        ) : (
+          /* Placeholder: icon besar di tengah */
+          <div className="flex h-full w-full flex-col items-center justify-center gap-3">
+            <div
+              className="flex h-14 w-14 items-center justify-center rounded-2xl bg-white/[0.06] ring-1 ring-white/10"
+              style={{ color: project.color }}
+            >
+              <Icon size={28} />
+            </div>
+            <span className="font-body text-[11px] uppercase tracking-widest text-white/20">
+              No Preview
+            </span>
+          </div>
         )}
-        {project.demo && (
-          <motion.a
-            href={project.demo}
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center gap-2 font-body text-sm transition-colors hover:text-white"
+
+        {/* Gradient overlay bawah */}
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#0d1117] to-transparent" />
+
+        {/* Status badge */}
+        <span className="absolute right-3 top-3 rounded-full border border-white/10 bg-black/60 px-2.5 py-0.5 font-body text-[10px] text-white/40 backdrop-blur-sm">
+          {project.status}
+        </span>
+      </div>
+
+      {/* ── Body ── */}
+      <div className="p-5 pt-4">
+        {/* Icon kecil + title */}
+        <div className="mb-1 flex items-center gap-2.5">
+          <div
+            className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-lg bg-white/[0.05]"
             style={{ color: project.color }}
-            whileHover={{ y: -2 }}
-            whileTap={{ scale: 0.98 }}
           >
-            <FiExternalLink size={15} />
-            Visit Website
-          </motion.a>
-        )}
+            <Icon size={14} />
+          </div>
+          <h3 className="font-display text-lg font-bold leading-tight text-white">
+            {project.title}
+          </h3>
+        </div>
+
+        <p className="mt-2 min-h-[3.5rem] font-body text-[13px] leading-relaxed text-white/50">
+          {project.desc}
+        </p>
+
+        {/* Tags */}
+        <div className="mt-4 flex flex-wrap gap-1.5">
+          {project.tags.map((tag) => (
+            <span
+              key={tag}
+              className="rounded-full border border-white/10 px-2 py-0.5 font-body text-[11px] text-white/40"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+
+        {/* Links */}
+        <div className="mt-5 flex items-center gap-4">
+          {project.github && (
+            <motion.a
+              href={project.github}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-1.5 font-body text-[13px] text-white/50 transition-colors hover:text-white"
+              whileHover={{ y: -2 }}
+              whileTap={{ scale: 0.97 }}
+            >
+              <FiGithub size={13} />
+              GitHub
+            </motion.a>
+          )}
+          {project.demo && (
+            <motion.a
+              href={project.demo}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-1.5 font-body text-[13px] transition-colors hover:brightness-125"
+              style={{ color: project.color }}
+              whileHover={{ y: -2 }}
+              whileTap={{ scale: 0.97 }}
+            >
+              <FiExternalLink size={13} />
+              Visit Website
+            </motion.a>
+          )}
+        </div>
       </div>
     </motion.article>
   )
 }
 
+// ─── SECTION ──────────────────────────────────────────────────────────────────
 export default function Projects() {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: '-100px' })
+  const headRef = useRef(null)
+  const scrollRef = useRef(null)
+  const isInView = useInView(headRef, { once: true, margin: '-80px' })
+  const [canScrollLeft, setCanScrollLeft] = useState(false)
+  const [canScrollRight, setCanScrollRight] = useState(true)
+
+  const CARD_W = 336 // w-80 + gap
+
+  const updateScrollState = () => {
+    const el = scrollRef.current
+    if (!el) return
+    setCanScrollLeft(el.scrollLeft > 8)
+    setCanScrollRight(el.scrollLeft < el.scrollWidth - el.clientWidth - 8)
+  }
+
+  const scroll = (dir) => {
+    scrollRef.current?.scrollBy({ left: dir * CARD_W, behavior: 'smooth' })
+  }
 
   return (
-    <section id="projects" className="section-padding relative">
+    <section id="projects" className="section-padding relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
-        <div ref={ref} className="mx-auto mb-12 max-w-2xl text-center">
+        {/* ── Header ── */}
+        <div ref={headRef} className="mx-auto mb-10 max-w-2xl text-center">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             className="mb-3"
           >
@@ -128,7 +205,7 @@ export default function Projects() {
           </motion.div>
           <motion.h2
             className="font-display text-4xl font-extrabold text-white md:text-5xl"
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.1 }}
           >
@@ -144,10 +221,70 @@ export default function Projects() {
           </motion.p>
         </div>
 
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {projects.map((project, i) => (
-            <ProjectCard key={project.title} project={project} index={i} />
-          ))}
+        {/* ── Carousel Wrapper ── */}
+        <div className="relative">
+          {/* Fade kiri */}
+          <div
+            className="pointer-events-none absolute left-0 top-0 z-10 h-full w-16 bg-gradient-to-r from-[inherit] to-transparent transition-opacity duration-300"
+            style={{ opacity: canScrollLeft ? 1 : 0 }}
+          />
+          {/* Fade kanan */}
+          <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-16 bg-gradient-to-l from-[inherit] to-transparent" />
+
+          {/* Scrollable row */}
+          <div
+            ref={scrollRef}
+            onScroll={updateScrollState}
+            className="flex gap-5 overflow-x-auto pb-4 scroll-smooth"
+            style={{
+              scrollbarWidth: 'none',       /* Firefox */
+              msOverflowStyle: 'none',      /* IE/Edge */
+            }}
+          >
+            {/* hide webkit scrollbar via inline — Tailwind doesn't have a built-in class */}
+            <style>{`.hide-scroll::-webkit-scrollbar{display:none}`}</style>
+            {projects.map((project, i) => (
+              <ProjectCard key={project.title} project={project} index={i} />
+            ))}
+            {/* Spacer agar card terakhir tidak tertutup fade */}
+            <div className="flex-shrink-0 w-4" />
+          </div>
+
+          {/* ── Nav Arrows ── */}
+          <div className="mt-6 flex items-center justify-center gap-3">
+            <button
+              onClick={() => scroll(-1)}
+              disabled={!canScrollLeft}
+              className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white/50 transition-all hover:border-amber-500/40 hover:text-amber-400 disabled:opacity-20 disabled:cursor-not-allowed"
+              aria-label="Scroll left"
+            >
+              <FiChevronLeft size={17} />
+            </button>
+
+            {/* Dot indicators */}
+            <div className="flex gap-1.5">
+              {projects.map((p, i) => (
+                <button
+                  key={p.title}
+                  onClick={() => {
+                    scrollRef.current?.scrollTo({ left: i * CARD_W, behavior: 'smooth' })
+                  }}
+                  className="h-1.5 rounded-full bg-white/20 transition-all hover:bg-amber-400"
+                  style={{ width: i === 0 ? 20 : 6 }}
+                  aria-label={`Go to ${p.title}`}
+                />
+              ))}
+            </div>
+
+            <button
+              onClick={() => scroll(1)}
+              disabled={!canScrollRight}
+              className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white/50 transition-all hover:border-amber-500/40 hover:text-amber-400 disabled:opacity-20 disabled:cursor-not-allowed"
+              aria-label="Scroll right"
+            >
+              <FiChevronRight size={17} />
+            </button>
+          </div>
         </div>
       </div>
     </section>
