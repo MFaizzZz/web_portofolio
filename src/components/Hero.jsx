@@ -15,7 +15,7 @@ const itemVariants = {
   show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] } },
 }
 
-const roles = ['Data Analyst', 'Web Developer', 'Flutter Developer']
+const roles = ['Data Analyst', 'Web Developer', 'Mobile Developer']
 
 export default function Hero() {
   return (

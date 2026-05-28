@@ -21,7 +21,7 @@ const focusAreas = [
   },
   {
     icon: FiSmartphone,
-    title: 'Flutter Development',
+    title: 'Mobile Development',
     desc: 'Aplikasi mobile cross-platform.',
   },
   {
