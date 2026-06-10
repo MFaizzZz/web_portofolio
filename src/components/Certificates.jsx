@@ -25,7 +25,7 @@ const certificates = [
     issuer: 'E-Certificate',
     date: '2026',
     category: 'Sosialisai',
-    url: 'SERTI MENTI.pdf',
+    url: '/SERTI MENTI.pdf',
   },
 ]
 
