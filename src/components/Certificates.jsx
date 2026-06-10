@@ -19,6 +19,14 @@ const certificates = [
     category: 'Industrial Practice',
     url: '/certificates/E-Certificate%20Pembekalan%20PI.pdf',
   },
+  {
+    title: 'Menti',
+    subtitle: 'Menti',
+    issuer: 'E-Certificate',
+    date: '2026',
+    category: 'Sosialisai',
+    url: 'SERTI MENTI.pdf',
+  },
 ]
 
 function CertRow({ cert, index }) {
